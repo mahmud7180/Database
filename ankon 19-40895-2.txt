@@ -1,0 +1,28 @@
+create table pharmacy(p_id number(10)primary key,p_name varchar2(20),p_loation1 varchar2(20),p_location2 varchar2(20),p_location3 varchar2(20));
+insert into pharmacy values(1,'popular pharmacy','Dhanmondi','chittagong','cox,s bazar');
+insert into pharmacy values(2,'Lazz pharma','Dhaka','chittagong','khulna');
+insert into pharmacy values(3,'Qps pharmacy','Ghulsan','uttara','Badda');
+
+create table Address(a_id number(10)primary key,d_city varchar2(20),d_country varchar2(20));
+insert into Address values(1,'Dhaka','Bangladesh');
+insert into Address values(2,'kolkata','India');
+insert into Address values(3,'chittagong','Bangladesh');
+
+create table Doctor(d_id number(10)primary key,d_name varchar2(20),d_specialty1 varchar2(20),d_specialty2 varchar2(30),d_specialty3 varchar2(20),a_id number(10));
+alter table Doctor add constraint fk foreign key(a_id)references Address(a_id);
+insert into Doctor values (1,'karim','medicine','diabetics','child specialist',1);
+insert into Doctor values (2,'Rahim','Anaesthesia.','Clinical oncology','Clinical radiology',2);
+insert into Doctor values (3,'Rafi',' Allergy','Audiovestibular medicine','Cardiology',3);
+
+create table Medicine(m_id number(10)primary key,m_name varchar2(20),m_company varchar2(20),d_id number(10));
+alter table Medicine add constraint kf foreign key(d_id)references Doctor(d_id);
+insert into Medicine values(1,'Napa','square',1);
+insert into Medicine values(2,'seclo','Beximco',2);
+insert into Medicine values(3,'flexi','square',3);
+
+create table foreignKeyTable(p_id number(10),m_id number(10));
+alter table foreignKeyTable add constraint jf foreign key(p_id)references pharmacy(p_id);
+alter table foreignKeyTable add constraint lf foreign key(m_id)references Medicine(m_id);
+insert into foreignKeyTable values(1,1);
+insert into foreignKeyTable values(1,2);
+insert into foreignKeyTable values(2,3);

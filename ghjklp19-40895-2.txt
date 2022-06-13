@@ -1,0 +1,5 @@
+1: SELECT ename from emp WHERE sal > (select sal from emp where ename='SMITH');
+2: select ename from emp where job=(select ename from emp where ename='JONES');
+3: select ename from emp where sal = (select sal from emp where ename='MARTIN');
+4: SELECT ename from emp where hiredate > (select hiredate from emp where ename = 'KING');
+5: select ename from emp where deptno=(select deptno from dept where dname='ACCOUNTING') and job='CLERK';

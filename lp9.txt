@@ -1,0 +1,15 @@
+1.create sequence DEPT_ID_SEQ increment by 10 start with 60 maxvalue 200 nocache nocycle;
+2.select sequence_name, max_value,increment_by, last_number from user_sequences;
+3.insert into dept (deptno,dname,loc) values (DEPT_ID_SEQ.NEXTVAL,'MARKETING','USA');
+4.select DEPT_ID_SEQ.CURRVAL from dual;
+5.select DEPT_ID_SEQ.NEXTVAL from dual;
+
+
+
+
+
+1: CREATE USER Rahul  IDENTIFIED BY ret23erz ;
+2: CREATE   ROLE  role;
+3: GRANT create table, create view ,create sequence to Accounts; 
+4: GRANT Accounts to Rahul;
+5: ALTER USER Rahul  IDENTIFIED BY rec34tg ;

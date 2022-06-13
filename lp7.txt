@@ -1,0 +1,7 @@
+1. select ename from emp,dept where emp.deptno=dept.deptno and loc='DALLAS';
+2. select emp.ename, emp.deptno, dept.dname from emp,dept;
+3. select ename, dname from emp,dept where sal>3000;
+4. select worker.ename ||' join before '|| manager.ename From emp worker, emp manager WHERE worker.mgr=manager.empno and worker.hiredate<manager.hiredate;
+5. select e.ename,m.ename from emp e,emp m where e.empno=m.mgr;
+6. select e.ename, s.grade From emp e, salgrade s WHERE e.sal BETWEEN 1401 and 2000 and s.grade=3;
+7. select e.ename, d.dname From emp e, dept d WHERE e.deptno(+) = d.deptno ORDER BY e.deptno;

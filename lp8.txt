@@ -1,0 +1,30 @@
+CREATE TABLE Publishers (
+                       pub_id NUMBER(15) PRIMARY KEY,
+                       pub_name VARCHAR2(15),
+                       Email VARCHAR2(20),
+                       Phone NUMBER(20));
+CREATE TABLE Subjects (
+                          sub_id NUMBER(10) PRIMARY KEY,
+                          s_name VARCHAR2(15));
+CREATE TABLE Titles(
+                    title_id NUMBER(10) PRIMARY KEY,
+                    title VARCHAR2(15),
+                    pub_date DATE,
+                    Cover VARCHAR2(10),
+                    Price NUMBER(6,4),
+                    pub_id NUMBER(20),
+                    sub_id NUMBER(10),
+                    CONSTRAINT FK1 FOREIGN KEY (pub_id) 
+                    REFERENCES PUBLISHER (pub_id),
+                    CONSTRAINT FK2 FOREIGN KEY (sub_id) 
+                    REFERENCES SUBJECTS (sub_id));
+CREATE TABLE Titleauthors (
+                     importance VARCHAR2(50),
+                     title_id NUMBER(10),
+                     auth_id NUMBER(10),
+                     CONSTRAINT PK_Id PRIMARY KEY (title_id, auth_id));
+CREATE TABLE Authors (
+                    auth_id NUMBER(10) PRIMARY KEY,
+                    auth_name VARCHAR2(25),
+                    Email VARCHAR2(20),
+                    Phone NUMBER(10));
